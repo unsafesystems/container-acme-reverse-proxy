@@ -1,4 +1,4 @@
-module github.com/unsafesystems/acme-reverse-proxy
+module github.com/unsafesystems/container-acme-reverse-proxy
 
 go 1.20
 
