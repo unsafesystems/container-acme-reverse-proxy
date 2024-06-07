@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
-	"golang.org/x/crypto/acme/autocert"
 	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"os"
+	"strings"
 	"time"
+
+	"golang.org/x/crypto/acme/autocert"
 )
 
 const (
@@ -43,6 +45,7 @@ func main() {
 	if host == "" {
 		log.Fatal("PROXY_HOST environment variable not set")
 	}
+	hosts := strings.Split(host, ",")
 
 	email := os.Getenv("PROXY_EMAIL")
 	if email == "" {
@@ -54,7 +57,7 @@ func main() {
 		Cache:      autocert.DirCache("autocert"),
 		Prompt:     autocert.AcceptTOS,
 		Email:      email,
-		HostPolicy: autocert.HostWhitelist(host),
+		HostPolicy: autocert.HostWhitelist(hosts...),
 	}
 
 	// Have autocert listen on port 80 to handle HTTP-01 challenges. This will also take care of redirecting
