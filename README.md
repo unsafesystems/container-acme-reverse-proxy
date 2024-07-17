@@ -7,11 +7,11 @@ simple, easy to use, reverse proxy that can be used to front web applications.
 
 The reverse proxy is configured via environment variables. The following variables are supported:
 
-| Variable       | Description                                                | Example                 |
-|----------------|------------------------------------------------------------|-------------------------|
-| `PROXY_HOST`   | The host the proxy is listening on. Used with letsencrypt. | `example.com`           |
-| `PROXY_EMAIL`  | The email address to register with letsencrypt.            | `mail@example.com`      |
-| `PROXY_TARGET` | The target URL to proxy requests to.                       | `http://localhost:8080` |
+| Variable       | Description                                                 | Example                       |
+|----------------|-------------------------------------------------------------|-------------------------------|
+| `PROXY_HOST`   | The hostname(s) the proxy is listening on, comma-separated. | `example.com,www.example.com` |
+| `PROXY_EMAIL`  | The email address to register with letsencrypt.             | `mail@example.com`            |
+| `PROXY_TARGET` | The target URL to proxy requests to.                        | `http://localhost:8080`       |
 
 
 ## Usage
